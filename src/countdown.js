@@ -13,10 +13,19 @@
  */
 function countdownTimer(startTime, interval) {
   // Initialize the remaining time
+  let time = startTime;
   // Set up a timer using setInterval
+   const timerId = setInterval(() => {
   // Log the remaining time and decrement it
+  console.log(time);
+    time--;
   // Stop the timer when time reaches 0
+  if (time < 0) {
+      clearInterval(timerId);
+    }
+  }, 1000);
   // Return the timer ID for validation
+  return timerId;
 }
 
 module.exports = { countdownTimer };
